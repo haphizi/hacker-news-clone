@@ -3,10 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Hacker News</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="index.js"></script>
+    <div id="app-container">
+      <div id="app-header">
+        <header class="header">
+          <div class="flex">
+            <span class="header-title">
+              <img
+                src="https://icon.now.sh/ycombinator/fff"
+                alt=""
+                class="header-logo"
+              />
+              HackerNews
+            </span>
+            <a href="#/" class="header-link">Top</a>
+            <a href="#/new" class="header-link">New</a>
+            <a href="#/ask" class="header-link">Ask</a>
+            <a href="#/show" class="header-link">Show</a>
+            <a href="#/favourites" class="header-link">Favourites</a>
+          </div>
+        </header>
+      </div>
+      <div id="route-container">
+        <div id="router-outlet"></div>
+      </div>
+    </div>
+    <script type="module" src="app.js"></script>
+    <script src="//unpkg.com/navigo@6"></script>
+    <!-- https://npmjs.com/package/navigo -->
   </body>
 </html>
+
+<!-- news.ycombinator.com -->
