@@ -2,8 +2,21 @@ import view from "../utils/view.js";
 import Story from "../components/Story.js";
 
 export default async function Item() {
-  const story = await getStory();
-  const hasComments = story.comments.length > 0;
+  let story = null;
+  let hasComments = false;
+  let hasError = false;
+
+  try {
+    story = await getStory();
+    hasComments = story.comments.length > 0;
+  } catch (error) {
+    hasError = true;
+    console.error(error);
+  }
+
+  if (hasError) {
+    view.innerHTML = `<div class="error">Error fetching story</div>`;
+  }
 
   view.innerHTML = `<div>${Story(story)}</div>
   <hr/>
@@ -17,6 +30,7 @@ export default async function Item() {
 
 // get the remainder of the hash uri using split method into 2 parts of array
 // we want the 2nd part which is the string of the id, so use bracket notation to the 2nd index which is 1
+
 async function getStory() {
   const storyId = window.location.hash.split("?id=")[1];
   //   console.log(storyId);
