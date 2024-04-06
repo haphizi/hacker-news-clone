@@ -1,1 +1,1 @@
-export default "https://node-hnapi.herokuapp.com";
+export default 'https://node-hnapi.herokuapp.com';
