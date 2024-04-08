@@ -45,7 +45,7 @@ const action = {
 };
 
 const store = createStore(favoritesReducer);
-store.dispatch(action);
-console.log(store.getState());
+// store.dispatch(action);
+// console.log(store.getState());
 
 export default store;
